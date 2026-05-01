@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mochi Mart — Support</title>
+  <meta name="description" content="Help and support for Mochi Mart, your cozy grocery list companion." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0608;
+      --bg-soft: #14090d;
+      --surface: #1a0e13;
+      --surface-2: #221319;
+      --border: #2a1820;
+      --text: #f5e8e3;
+      --text-soft: #c9b3ad;
+      --text-muted: #7a6660;
+      --accent: #e8b4b8;
+      --accent-soft: #d4969c;
+      --accent-glow: rgba(232, 180, 184, 0.15);
+      --pink: #f2c4c9;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Nunito', -apple-system, sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image:
+        radial-gradient(ellipse at top, rgba(232, 180, 184, 0.08), transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(212, 150, 156, 0.06), transparent 50%);
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 28px 60px;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      margin-bottom: 80px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 24px;
+      background: linear-gradient(to bottom, transparent, var(--accent));
+    }
+
+    .eyebrow {
+      font-family: 'Nunito', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(56px, 9vw, 88px);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    h1 .ampersand {
+      color: var(--accent);
+      font-weight: 400;
+    }
+
+    .tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 22px;
+      color: var(--text-soft);
+      max-width: 480px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin: 64px 0 48px;
+      color: var(--accent);
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      width: 60px;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .divider-symbol {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--accent-soft);
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 64px;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 36px;
+      color: var(--text);
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      color: var(--text-soft);
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+
+    /* Contact card */
+    .contact-card {
+      background: linear-gradient(135deg, var(--surface), var(--surface-2));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 40px 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0.6;
+    }
+
+    .contact-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .email-wrapper {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .email-link {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+
+    .email-link:hover {
+      color: var(--pink);
+      border-bottom-color: var(--accent);
+    }
+
+    .copy-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-soft);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .copy-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-glow);
+    }
+
+    .copy-btn.copied {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .response-time {
+      margin-top: 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    /* FAQ */
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 24px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .faq-number {
+      font-size: 13px;
+      color: var(--accent);
+      font-style: normal;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      min-width: 24px;
+    }
+
+    .faq-answer {
+      color: var(--text-soft);
+      padding-left: 36px;
+      font-size: 15px;
+    }
+
+    .faq-answer a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      transition: opacity 0.2s ease;
+    }
+
+    .faq-answer a:hover {
+      opacity: 0.7;
+    }
+
+    /* Privacy callout */
+    .privacy-callout {
+      background: var(--bg-soft);
+      border-left: 2px solid var(--accent);
+      padding: 20px 24px;
+      border-radius: 0 12px 12px 0;
+      margin-top: 16px;
+    }
+
+    .privacy-callout p {
+      margin-bottom: 0;
+      font-size: 15px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding-top: 60px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 13px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+    }
+
+    footer .heart {
+      color: var(--accent);
+      display: inline-block;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.15); opacity: 0.85; }
+    }
+
+    /* Stagger fade in */
+    .hero,
+    section {
+      animation: fadeUp 0.8s ease-out backwards;
+    }
+
+    .hero { animation-delay: 0.1s; }
+    section:nth-of-type(1) { animation-delay: 0.3s; }
+    section:nth-of-type(2) { animation-delay: 0.45s; }
+    section:nth-of-type(3) { animation-delay: 0.6s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 540px) {
+      .container { padding: 56px 20px 40px; }
+      .contact-card { padding: 32px 20px; }
+      .email-link { font-size: 22px; }
+      .faq-answer { padding-left: 0; }
+      h2 { font-size: 30px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header class="hero">
+      <div class="eyebrow">Support · Help · Hello</div>
+      <h1>Mochi Mart</h1>
+      <p class="tagline">Need a hand with your grocery list? You're in the right place.</p>
+    </header>
+
+    <div class="divider">
+      <span class="divider-symbol">✦</span>
+    </div>
+
+    <section>
+      <div class="contact-card">
+        <div class="contact-label">Get in touch</div>
+        <div class="email-wrapper">
+          <a class="email-link" href="mailto:support.mochi@gmail.com">support.mochi@gmail.com</a>
+          <button class="copy-btn" id="copyBtn" aria-label="Copy email address">Copy</button>
+        </div>
+        <div class="response-time">Usually a reply within 1–2 days ♡</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Frequently asked</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-number">01</span>
+          <span>How do I add an item to my list?</span>
+        </div>
+        <div class="faq-answer">
+          Tap the <em>add an item…</em> field at the bottom of any list and type what you need. Mochi will sort it into the right category for you.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-number">02</span>
+          <span>Are nutrition estimates accurate?</span>
+        </div>
+        <div class="faq-answer">
+          They're approximations based on standard ingredient data and average serving sizes. Treat them as rough guides, not medical or dietary advice.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-number">03</span>
+          <span>How do I delete a list or an item?</span>
+        </div>
+        <div class="faq-answer">
+          Tap the trash icon in the top right of a list to remove the whole list. Swipe an individual item to remove just that one.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-number">04</span>
+          <span>I found a bug or have a feature request</span>
+        </div>
+        <div class="faq-answer">
+          Please email <a href="mailto:support.mochi@gmail.com">support.mochi@gmail.com</a> with as much detail as you can — what you were doing, what happened, and your iPhone model if relevant. Screenshots help a lot.
+        </div>
+      </div>
+
+    </section>
+
+    <footer>
+      Made with <span class="heart">♡</span> &nbsp;·&nbsp; © 2026 Mochi Mart
+    </footer>
+
+  </div>
+
+  <script>
+    const copyBtn = document.getElementById('copyBtn');
+    const email = 'support.mochi@gmail.com';
+
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(email);
+        copyBtn.textContent = 'Copied ♡';
+        copyBtn.classList.add('copied');
+        setTimeout(() => {
+          copyBtn.textContent = 'Copy';
+          copyBtn.classList.remove('copied');
+        }, 2000);
+      } catch (err) {
+        copyBtn.textContent = 'Press to select';
+      }
+    });
+  </script>
+</body>
+</html>
