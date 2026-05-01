@@ -297,6 +297,64 @@
       font-size: 15px;
     }
 
+    /* Privacy policy */
+    .privacy-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 22px;
+      color: var(--text);
+      margin-top: 28px;
+      margin-bottom: 10px;
+    }
+
+    .privacy-section p,
+    .privacy-section li {
+      color: var(--text-soft);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .privacy-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 16px;
+    }
+
+    .privacy-section ul li {
+      padding: 6px 0 6px 18px;
+      position: relative;
+    }
+
+    .privacy-section ul li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      color: var(--accent);
+      font-size: 11px;
+    }
+
+    .privacy-section a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      transition: opacity 0.2s ease;
+    }
+
+    .privacy-section a:hover {
+      opacity: 0.7;
+    }
+
+    .effective-date {
+      font-family: 'Nunito', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
     /* Footer */
     footer {
       text-align: center;
@@ -329,6 +387,7 @@
     section:nth-of-type(1) { animation-delay: 0.3s; }
     section:nth-of-type(2) { animation-delay: 0.45s; }
     section:nth-of-type(3) { animation-delay: 0.6s; }
+    section:nth-of-type(4) { animation-delay: 0.75s; }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
@@ -411,6 +470,92 @@
         </div>
       </div>
 
+    </section>
+
+    <div class="divider">
+      <span class="divider-symbol">✦</span>
+    </div>
+
+    <section id="privacy" class="privacy-section">
+      <h2>Privacy Policy</h2>
+      <div class="effective-date">Effective April 30, 2026</div>
+
+      <p>
+        Mochi Mart is a personal grocery list app. We've designed it to keep your data as quiet as possible — no accounts, no ads, no tracking. This page explains exactly what happens to your data so there are no surprises.
+      </p>
+
+      <h3>What stays on your device</h3>
+      <p>
+        Almost everything. The following is stored locally on your iPhone using standard iOS storage (AsyncStorage) and never leaves your device unless you use one of the AI features described below:
+      </p>
+      <ul>
+        <li>Your grocery lists, list names, items, quantities, and check-off state</li>
+        <li>Your pantry history (which items you buy and when you check them off)</li>
+        <li>App preferences and small bookkeeping (last-suggestion timestamps, category cache)</li>
+      </ul>
+      <p>
+        Uninstalling the app removes all of this from your device.
+      </p>
+
+      <h3>What we send out</h3>
+      <p>
+        Some features use a Claude (Anthropic) AI model to help with categorization, recipes, and conversational suggestions. When you use these features, a small payload is sent to our server, which forwards it to Anthropic and returns the result. The data sent depends on which feature is active:
+      </p>
+      <ul>
+        <li><strong>Chatting with Mochi:</strong> your typed message, your recent chat history with Mochi, and a snapshot of the active grocery list</li>
+        <li><strong>Categorizing unknown items:</strong> just the item name (e.g., "oj")</li>
+        <li><strong>Greetings &amp; pantry suggestions:</strong> a short summary of your list state and any items that are about due</li>
+      </ul>
+      <p>
+        We do not send your name, email, phone number, location, contacts, photos, or any device or advertising identifier — Mochi Mart never asks for any of these.
+      </p>
+
+      <h3>Third parties</h3>
+      <ul>
+        <li>
+          <strong>Anthropic</strong> processes the AI requests above. Their <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">privacy policy</a> applies to data we send their API. By default Anthropic retains API inputs and outputs for up to 30 days for trust and safety, and does not use them to train their models.
+        </li>
+        <li>
+          <strong>Vercel</strong> hosts our small forwarding server. Their infrastructure may log standard request metadata (IP address, timestamp). See <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">Vercel's privacy policy</a>.
+        </li>
+      </ul>
+      <p>
+        We do not use third-party analytics, crash reporters, or advertising SDKs.
+      </p>
+
+      <h3>What we don't do</h3>
+      <ul>
+        <li>No accounts, sign-in, or passwords</li>
+        <li>No advertising or marketing</li>
+        <li>No tracking across other apps or websites</li>
+        <li>No selling, sharing, or trading your data</li>
+        <li>No camera, microphone, location, or contacts access</li>
+      </ul>
+
+      <h3>Children</h3>
+      <p>
+        Mochi Mart isn't directed at children under 13. We don't knowingly collect personal information from children. If you believe a child has used the app and you'd like the local data removed, just delete the app from their device.
+      </p>
+
+      <h3>Your choices</h3>
+      <p>
+        Because nothing is tied to an account, you control everything from the device:
+      </p>
+      <ul>
+        <li>Clear individual lists or items from inside the app</li>
+        <li>Uninstall the app to remove all local data</li>
+        <li>Email us if you want to know more about the data flow or have a request</li>
+      </ul>
+
+      <h3>Changes to this policy</h3>
+      <p>
+        If we update how data is handled, we'll update this page and bump the effective date above. Material changes will also be noted in the app's release notes.
+      </p>
+
+      <h3>Contact</h3>
+      <p>
+        Questions or concerns? Email <a href="mailto:support.mochi@gmail.com">support.mochi@gmail.com</a> and we'll get back to you within a few days.
+      </p>
     </section>
 
     <footer>
