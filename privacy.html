@@ -247,7 +247,7 @@
     <header class="hero">
       <div class="eyebrow">Privacy Policy</div>
       <h1>Quiet by design.</h1>
-      <div class="effective-date">Effective April 30, 2026</div>
+      <div class="effective-date">Effective May 8, 2026</div>
     </header>
 
     <section>
@@ -265,6 +265,7 @@
         <li>Your grocery lists, list names, items, quantities, and check-off state</li>
         <li>Your pantry history (which items you buy and when you check them off)</li>
         <li>App preferences and small bookkeeping (last-suggestion timestamps, category cache)</li>
+        <li>Photos taken with the in-app label scanner are held in memory only — they are not saved to your photo library, and are discarded as soon as the report is generated or the scanner is closed</li>
       </ul>
       <p>
         Uninstalling the app removes all of this from your device.
@@ -274,15 +275,26 @@
     <section>
       <h2>What we send out</h2>
       <p>
-        Some features use a Claude (Anthropic) AI model to help with categorization, recipes, and conversational suggestions. When you use these features, a small payload is sent to our server, which forwards it to Anthropic and returns the result. The data sent depends on which feature is active:
+        Some features use a Claude (Anthropic) AI model to help with categorization, recipes, label analysis, and conversational suggestions. When you use these features, a small payload is sent to our forwarding server, which calls Anthropic and returns the result. The data sent depends on which feature is active:
       </p>
       <ul>
         <li><strong>Chatting with Mochi:</strong> your typed message, your recent chat history with Mochi, and a snapshot of the active grocery list</li>
+        <li><strong>Scanning a product label:</strong> the photo you captured, downscaled to roughly 1024 px wide and JPEG-compressed. Photos leave your device only when you explicitly tap "analyze" after reviewing them on the in-app review screen.</li>
         <li><strong>Categorizing unknown items:</strong> just the item name (e.g., "oj")</li>
         <li><strong>Greetings &amp; pantry suggestions:</strong> a short summary of your list state and any items that are about due</li>
       </ul>
       <p>
-        We do not send your name, email, phone number, location, contacts, photos, or any device or advertising identifier — Mochi Mart never asks for any of these.
+        We do not send your name, email, phone number, location, contacts, photos from your photo library, or any device or advertising identifier — Mochi Mart never asks for any of these.
+      </p>
+    </section>
+
+    <section>
+      <h2>Permissions Mochi Mart asks for</h2>
+      <ul>
+        <li><strong>Camera</strong> — only when you open the label scanner. The camera is active only while the scanner is on screen, never in the background. Photos are not saved to your photo library.</li>
+      </ul>
+      <p>
+        iOS will prompt you the first time the scanner runs. You can revoke camera access at any time in Settings → Mochi.
       </p>
     </section>
 
@@ -290,7 +302,7 @@
       <h2>Third parties</h2>
       <ul>
         <li>
-          <strong>Anthropic</strong> processes the AI requests above. Their <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">privacy policy</a> applies to data we send their API. By default Anthropic retains API inputs and outputs for up to 30 days for trust and safety, and does not use them to train their models.
+          <strong>Anthropic</strong> processes the AI requests above. Their <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">privacy policy</a> applies to data we send their API — including any photos you submit for label analysis. By default Anthropic retains API inputs and outputs for up to 30 days for trust and safety review, and does not use them to train their models.
         </li>
         <li>
           <strong>Vercel</strong> hosts our small forwarding server. Their infrastructure may log standard request metadata (IP address, timestamp). See <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">Vercel's privacy policy</a>.
@@ -308,7 +320,8 @@
         <li>No advertising or marketing</li>
         <li>No tracking across other apps or websites</li>
         <li>No selling, sharing, or trading your data</li>
-        <li>No camera, microphone, location, or contacts access</li>
+        <li>No microphone, location, contacts, photo library, or advertising-identifier access</li>
+        <li>No background camera activity — the camera is active only while the label scanner is open and visible on screen</li>
       </ul>
     </section>
 
